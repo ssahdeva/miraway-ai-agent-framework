@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "miraway-ai-agent-framework"
+version = "0.1.0"
+description = "A minimal Python framework for building AI agents"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "Miraway"}]
+dependencies = []
+
+[project.scripts]
+miraway-agent = "miraway_ai_agent_framework.cli:main"
+
+[project.optional-dependencies]
+dev = [
+	"pytest>=8.0",
+	"ruff>=0.6",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+
+[tool.ruff.lint.per-file-ignores]
+"src/miraway_ai_agent_framework/__main__.py" = ["I001"]
