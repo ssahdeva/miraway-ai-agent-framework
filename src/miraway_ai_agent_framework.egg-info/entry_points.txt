@@ -1,0 +1,2 @@
+[console_scripts]
+miraway-agent = miraway_ai_agent_framework.cli:main
